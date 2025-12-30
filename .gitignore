@@ -1,0 +1,82 @@
+# ==============================================================================
+# UNIFIED GITIGNORE (Spring Boot + ASP.NET Core + React)
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. GLOBAL / GENERAL
+# ------------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+*.log
+tmp/
+temp/
+
+# IDE Configuration
+.idea/
+.vscode/
+*.swp
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ------------------------------------------------------------------------------
+# 2. SPRING BOOT (JAVA / MAVEN)
+# ------------------------------------------------------------------------------
+# Build output
+Auth-service/target/
+Auth-service/bin/
+
+# Maven wrapper (optional: usually tracked, but JARs can be ignored if preferred)
+!Auth-service/.mvn/wrapper/maven-wrapper.jar
+
+# Logs and local DB
+Auth-service/users.db
+Auth-service/*.log
+
+# Eclipse / IntelliJ specific
+Auth-service/.classpath
+Auth-service/.project
+Auth-service/.settings/
+Auth-service/*.iml
+
+# ------------------------------------------------------------------------------
+# 3. ASP.NET CORE (C# / .NET)
+# ------------------------------------------------------------------------------
+# Build results
+Project-service/**/bin/
+Project-service/**/obj/
+
+# Local DB
+Project-service/projects.db
+Project-service/projects.db-shm
+Project-service/projects.db-wal
+
+# User-specific files
+Project-service/*.user
+
+# ------------------------------------------------------------------------------
+# 4. REACT FRONTEND (NODE.JS)
+# ------------------------------------------------------------------------------
+# Dependencies
+frontend/node_modules/
+
+# Production build
+frontend/dist/
+frontend/build/
+
+# Local environment variables
+frontend/.env
+frontend/.env.local
+
+# Logs
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# ------------------------------------------------------------------------------
+# 5. DOCUMENTATION (Allow these)
+# ------------------------------------------------------------------------------
+
+EXPLANATION.md
+SCALING.md
