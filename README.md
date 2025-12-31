@@ -38,3 +38,23 @@ npm install
 npm run dev
 ```
 *Runs on http://localhost:5173*
+
+## 🐳 Running with Docker (Recommended)
+
+1.  **Prerequisites**: Ensure Docker Desktop is installed and running.
+2.  **Start**:
+    ```bash
+    docker-compose up --build
+    ```
+3.  **Access**:
+    *   **App (Gateway)**: http://localhost
+    *   **Frontend**: Routes to `/`
+    *   **Auth API**: Routes to `/auth/`
+    *   **Project API**: Routes to `/api/projects/`
+
+## 🏗️ Architecture (Dockerized)
+The `docker-compose.yml` orchestrates the following:
+*   **Gateway (Nginx)**: Port 80. Routes traffic.
+*   **Auth Service**: Internal Port 8080.
+*   **Project Service**: Internal Port 8080.
+*   **Frontend**: Internal Port 80 (served by Nginx).

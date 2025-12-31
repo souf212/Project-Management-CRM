@@ -75,8 +75,4 @@ frontend/yarn-debug.log*
 frontend/yarn-error.log*
 
 # ------------------------------------------------------------------------------
-# 5. DOCUMENTATION (Allow these)
-# ------------------------------------------------------------------------------
 
-EXPLANATION.md
-SCALING.md

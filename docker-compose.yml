@@ -1,0 +1,43 @@
+services:
+  gateway:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - auth-service
+      - project-service
+      - frontend
+    networks:
+      - app-network
+
+  auth-service:
+    build: ./Auth-service
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:sqlite:/app/users.db
+      # Ensure secrets are passed. In prod, use secrets management.
+      - JWT_SECRET=404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+    volumes:
+      - ./auth-db:/app/data # Persistence
+    networks:
+      - app-network
+
+  project-service:
+    build: ./Project-service
+    environment:
+      - ConnectionStrings__DefaultConnection=Data Source=/app/projects.db
+      - Jwt__Secret=404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+    volumes:
+      - ./project-db:/app/data # Persistence
+    networks:
+      - app-network
+
+  frontend:
+    build: ./frontend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
